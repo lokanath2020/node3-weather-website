@@ -96,6 +96,8 @@
                response.json().then((data) => {
                    if(data.error){
                        messageOne.textContent = data.error;
+                   }else if(data.forecast.latitude === "defaultone" || data.forecast.longitude === "defaultone"){
+                       messageOne.textContent = "Please search for another location"
                    }else{
                        messageOne.textContent = data.location;
                        messageTwo.textContent = `current temprature at ${data.forecast.location} is ${data.forecast.temperature} degree celciuus`;
