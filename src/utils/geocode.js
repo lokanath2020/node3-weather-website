@@ -27,11 +27,11 @@ const forecast = (location, callback) => {
         callback('Unable to find location', undefined)
     }else{
         callback(undefined,{
-            latitude: response?.body?.location?.lat,
-            longitude: response.body.location.lon,
-            temperature: response.body.current.temperature,
-            location:  response.body.location.name,
-            weatherDescription: response?.body?.weather_descriptions && response?.body?.weather_descriptions[0]
+            latitude: response?.body?.location?.lat || 'defaultone',
+            longitude: response?.body?.location?.lon || 'defualtone',
+            temperature: response?.body?.current?.temperature || 'defaultone',
+            location:  response?.body?.location?.name || 'defaultone',
+            weatherDescription: response?.body?.weather_descriptions && response?.body?.weather_descriptions[0] || 'defaultone'
         })
     }
     })
